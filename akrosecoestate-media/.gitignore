@@ -1,0 +1,4 @@
+_site/
+node_modules/
+# Full-quality video masters: too large for git, keep a backup elsewhere.
+_masters/
