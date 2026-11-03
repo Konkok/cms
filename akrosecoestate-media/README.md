@@ -1,4 +1,4 @@
-# akrosecoestate-media
+# Akros Eco Estate media (Konkok/cms)
 
 Photos, videos and blog articles for [akrosecoestate.com](https://akrosecoestate.com).
 Published with GitHub Pages; the website loads everything from here.
@@ -15,6 +15,7 @@ videos/
 blog/
   <slug>.md             one article per file; _TEMPLATE.md shows the format
 scripts/build.mjs       builds the published site (_site/)
+(the publish workflow is at the repo root: .github/workflows/publish.yml)
 ```
 
 Paths in the website and in articles are relative to this repo, e.g.
@@ -71,7 +72,8 @@ Keep every file under 50 MB (GitHub warns above 50 MB and rejects above 100 MB).
 
 ## One-time setup
 
-1. Create a **public** GitHub repo named `akrosecoestate-media` and push this folder.
+1. This folder lives in the **public** repo https://github.com/Konkok/cms; the
+   workflow is at the repo root in `.github/workflows/publish.yml`.
 2. *Settings → Pages → Build and deployment → Source:* **GitHub Actions**.
 3. In Vercel: project → *Settings → Git → Deploy Hooks* → create a hook
    (name `media`, branch `main`) and copy its URL.
@@ -79,7 +81,7 @@ Keep every file under 50 MB (GitHub warns above 50 MB and rejects above 100 MB).
    `VERCEL_DEPLOY_HOOK_URL` = that URL. It is a secret: anyone with it can
    trigger builds, so never commit it.
 5. In Vercel: *Settings → Environment Variables* → `VITE_ASSET_BASE_URL` =
-   `https://<github-user>.github.io/akrosecoestate-media/` (Production and Preview),
+   `https://konkok.github.io/cms/` (Production and Preview),
    then redeploy.
 
 ## Limits

@@ -25,17 +25,22 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # The media files live in this subfolder of the repo.
+    defaults:
+      run:
+        working-directory: akrosecoestate-media
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: akrosecoestate-media/package-lock.json
       - run: npm ci
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: akrosecoestate-media/_site
 
   deploy:
     needs: build
